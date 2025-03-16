@@ -23,8 +23,4 @@ The hardware needed for this project are the following:
 
 ![imlsystemfinal (1)](https://github.com/user-attachments/assets/f2f49f9c-daa6-460c-a134-a6f388c23775)
 
-## License
-
-Distributed under the MIT License. See `LICENSE.txt` for more information.
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
