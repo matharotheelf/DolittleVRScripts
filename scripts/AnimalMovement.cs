@@ -69,7 +69,7 @@ public class AnimalMovement : MonoBehaviour
     public enum InteractionBehaviour { Circling, Hopping, Swarming, Snaking, None };
     [SerializeField] InteractionBehaviour selectedInteraction = InteractionBehaviour.Circling;
 
-    // Random point generator within the range of the shark for shark random path
+    // Random point generator within the range of the shark for animal wandering path
     bool RandomPoint(Vector3 center, float sRange, out Vector3 result)
     {
         for (int i = 0; i < 30; i++)
@@ -86,7 +86,7 @@ public class AnimalMovement : MonoBehaviour
         return false;
     }
 
-    // Bool which returns whether a shark has reached the end of its path
+    // Bool which returns whether an animal has reached the end of its path
     bool AtEndOfPath()
     {
         hasPath |= navMeshAgent.hasPath;
@@ -101,7 +101,7 @@ public class AnimalMovement : MonoBehaviour
         return false;
     }
 
-    // Bool which returns whether shark is next to the navmesh edge
+    // Bool which returns whether animal is next to the navmesh edge
     bool AtEdgeOfMesh()
     {
         UnityEngine.AI.NavMeshHit hit;
@@ -124,7 +124,7 @@ public class AnimalMovement : MonoBehaviour
         }
         else
         {
-            // If the animal is at the adge of the navmesh
+            // If the animal is at the edge of the navmesh
             RandomPoint(transform.position, stepRange, out nextPoint);
         }
 
@@ -184,7 +184,7 @@ public class AnimalMovement : MonoBehaviour
         navMeshAgent.SetDestination(nextPoint);
     }
 
-    //When the animal has lost the users attention it runs away from the user
+    // When the animal has lost the users attention it runs away from the user
     public void runAwayFromUser()
     {
         startRunningAnimation();
@@ -245,6 +245,7 @@ public class AnimalMovement : MonoBehaviour
         switch (selectedInteraction)
         {
             case InteractionBehaviour.Circling:
+                // the animal circles around the user
                 nextDestination = userTransform.TransformPoint(circlingRadius * ( Quaternion.AngleAxis(currentCircleAngle, Vector3.up)*Vector3.right + Vector3.forward));
 
                 navMeshAgent.SetDestination(nextDestination);
@@ -254,6 +255,7 @@ public class AnimalMovement : MonoBehaviour
                 navMeshAgent.angularSpeed = interactionTurnSpeed;
                 break;
             case InteractionBehaviour.Hopping:
+                // the animal hops infront of the user
                 if (smoothedHandControllerSpeed > hoppingThreshold)
                 {
                     RandomPoint(userTransform.position + hoppingRadius * userTransform.forward, hoppingRadius, out nextDestination);

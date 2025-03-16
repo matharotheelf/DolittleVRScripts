@@ -20,6 +20,7 @@ public class ForceFieldHands : MonoBehaviour
 
         float controllerSpeed;
 
+        // Get the controller speed based on the selected hand
         switch(selectedHand)
         {
             case Hand.Left:
@@ -36,6 +37,7 @@ public class ForceFieldHands : MonoBehaviour
                 break;
         }
 
+        // update the force field strength based on the controller speed
         forceField.gravity = controllerSpeed * fieldStrengthMultiplier;
     }
 }

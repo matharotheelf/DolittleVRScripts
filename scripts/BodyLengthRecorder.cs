@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Register the body dimensions of the user
 public class BodyLengthRecorder : MonoBehaviour
 {
     [SerializeField] Transform headTransform;
