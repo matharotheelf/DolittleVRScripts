@@ -69,7 +69,7 @@ public class AnimalMovement : MonoBehaviour
     public enum InteractionBehaviour { Circling, Hopping, Swarming, Snaking, None };
     [SerializeField] InteractionBehaviour selectedInteraction = InteractionBehaviour.Circling;
 
-    // Random point generator within the range of the shark for animal wandering path
+    // Random point generator within the range of the animal for wandering path
     bool RandomPoint(Vector3 center, float sRange, out Vector3 result)
     {
         for (int i = 0; i < 30; i++)
