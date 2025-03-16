@@ -3,7 +3,7 @@
 
 "Dolittle VR" is a Unity based virtual reality game where you can dance with virtual animals. Each animal has its own unique gesture which are detect by the InteractML package.
 
-Please note this is just the scripts and not the full application
+Please note this is just the scripts and not the full application.
 
 ### Built With
 
